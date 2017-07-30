@@ -219,11 +219,36 @@ class SudokuViewController: UIViewController {
         requestedRowNumber = symbolsVC.rowNumber
         requestedColNumber = symbolsVC.colNumber
         
-        navigationController?.pushViewController(symbolsVC, animated: true)
+        highlightSelectedCell(colorToSet: UIColor.orange)
+        
+        //navigationController?.pushViewController(symbolsVC, animated: true)
+        symbolsVC.modalPresentationStyle = .overFullScreen
+        self.present(symbolsVC, animated: true, completion: nil)
+    }
+    
+    func highlightSelectedCell (colorToSet: UIColor) {
+        if let selectedCell = view.subviews[0].subviews[requestedRowNumber].subviews[requestedColNumber] as? UIButton {
+            selectedCell.setTitleColor(colorToSet, for: .normal)
+        }
+    }
+    
+    func writeIntoSelectedCell (symbolToWrite: String) {
+        if let selectedCell = view.subviews[0].subviews[requestedRowNumber].subviews[requestedColNumber] as? UIButton {
+            selectedCell.setTitle(symbolToWrite, for: .normal)
+            
+            switch selectedSymbol {
+            case solvedMatrix[requestedRowNumber][requestedColNumber]:
+                highlightSelectedCell(colorToSet: UIColor.green)
+            case "0":
+                highlightSelectedCell(colorToSet: UIColor.orange)
+            default:
+                highlightSelectedCell(colorToSet: UIColor.red)
+            }
+        }
     }
     
     @IBAction func unwindToSudokuView(unwindSegue: UIStoryboardSegue) {
-        print ("So, we are back here having been requested to set a value of \(selectedSymbol) at \(requestedRowNumber) \(requestedColNumber)")
+        writeIntoSelectedCell(symbolToWrite: selectedSymbol)
     }
     
     /*

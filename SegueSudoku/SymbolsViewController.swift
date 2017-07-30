@@ -25,7 +25,8 @@ class SymbolsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print ("Came here from \(rowNumber) \(colNumber)")
+        view.backgroundColor = UIColor.clear
+        view.isOpaque = false
     }
 
     override func didReceiveMemoryWarning() {
