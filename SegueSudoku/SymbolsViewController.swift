@@ -25,7 +25,7 @@ class SymbolsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         view.isOpaque = false
     }
 

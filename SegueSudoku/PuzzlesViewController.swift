@@ -97,6 +97,7 @@ class PuzzlesViewController: UIViewController {
     
     @IBOutlet weak var Puzzle3Button: UIButton!
     @IBAction func Puzzle3ButtonPressed(_ sender: UIButton) {
+        
     }
     
     @IBOutlet weak var Puzzle4Button: UIButton!

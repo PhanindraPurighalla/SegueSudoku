@@ -179,6 +179,7 @@ class SudokuViewController: UIViewController {
                     }
                     else {
                         currentCell.isEnabled = false
+                        currentCell.setTitleColor(UIColor.black, for: .normal)
                     }
                 }
             }
@@ -189,13 +190,118 @@ class SudokuViewController: UIViewController {
         setBackgroundColor()
     }
     
+    func validateMatrix() {
+        
+        guard isPuzzleComplete() else {
+            let alert = UIAlertController(title: "Incomplete puzzle", message: "Please complete all cells", preferredStyle: UIAlertControllerStyle.alert)
+            let incompletePuzzleAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
+                // The puzzle is not complete yet
+            }
+            
+            alert.addAction(incompletePuzzleAction)
+            
+            self.present(alert, animated: true, completion:nil)
+            
+            return
+        }
+        
+        for row in 0...8 {
+            for col in 0...8 {
+                if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
+                    
+                    if currentCell.title(for: .normal) == solvedMatrix[row][col] {
+                        if currentCell.isEnabled == true {
+                        currentCell.setTitleColor(UIColor.green, for: .normal)
+                        }
+                        else {
+                            currentCell.setTitleColor(UIColor.black, for: .normal)
+                        }
+                    }
+                    else {
+                        if currentCell.title(for: .normal) != "0" {
+                            currentCell.setTitleColor(UIColor.red, for: .normal)
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
+    func isPuzzleComplete() -> Bool {
+        for row in 0...8 {
+            for col in 0...8 {
+                if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
+                        if currentCell.title(for: .normal) == "0" {
+                           return false
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
+    
+    @IBOutlet weak var Restart: UIButton!
+    
+    @IBAction func RestartPressed(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Restart puzzle", message: "Are you sure you want to restart the puzzle?", preferredStyle: UIAlertControllerStyle.alert)
+        let restartAction = UIAlertAction(title: "Restart", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
+            self.populateInitialState()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) -> Void in
+            //print("You pressed Cancel")
+        }
+        
+        alert.addAction(restartAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion:nil)
+        
+        
+    }
+    
+    @IBOutlet weak var Validate: UIButton!
+    
+    
+    @IBAction func ValidatePressed(_ sender: UIButton) {
+        
+        validateMatrix()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         populateInitialState()
     }
+    
+    func resumePuzzle () {
+        
+        for row in 0...8 {
+            for col in 0...8 {
+                if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
+                    
+                    if currentCell.isEnabled == true && currentCell.title(for: .normal) != "0" {
+                        currentCell.setTitleColor(UIColor.orange, for: .normal)
+                    }
+                    
+                }
+            }
+        }
+        
+    }
 
+    @IBOutlet weak var Resume: UIButton!
+    
+    
+    @IBAction func ResumePressed(_ sender: UIButton) {
+        
+        resumePuzzle()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -223,6 +329,7 @@ class SudokuViewController: UIViewController {
         
         //navigationController?.pushViewController(symbolsVC, animated: true)
         symbolsVC.modalPresentationStyle = .overFullScreen
+        self.modalTransitionStyle = .crossDissolve
         self.present(symbolsVC, animated: true, completion: nil)
     }
     
@@ -235,15 +342,6 @@ class SudokuViewController: UIViewController {
     func writeIntoSelectedCell (symbolToWrite: String) {
         if let selectedCell = view.subviews[0].subviews[requestedRowNumber].subviews[requestedColNumber] as? UIButton {
             selectedCell.setTitle(symbolToWrite, for: .normal)
-            
-            switch selectedSymbol {
-            case solvedMatrix[requestedRowNumber][requestedColNumber]:
-                highlightSelectedCell(colorToSet: UIColor.green)
-            case "0":
-                highlightSelectedCell(colorToSet: UIColor.orange)
-            default:
-                highlightSelectedCell(colorToSet: UIColor.red)
-            }
         }
     }
     
