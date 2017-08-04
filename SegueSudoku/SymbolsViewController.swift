@@ -12,7 +12,7 @@ class SymbolsViewController: UIViewController {
     
     var rowNumber = 0
     var colNumber = 0
-    var valueSelected = "0"
+    var valueSelected = " "
 
     @IBOutlet var Symbols: [UIButton]!
     
@@ -35,7 +35,11 @@ class SymbolsViewController: UIViewController {
     }
     
 
+    @IBOutlet weak var Erase: UIButton!
     
+    @IBAction func ErasePressed(_ sender: UIButton) {
+        valueSelected = " "
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

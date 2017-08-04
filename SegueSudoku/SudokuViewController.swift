@@ -12,67 +12,68 @@ class SudokuViewController: UIViewController {
     
     var requestedRowNumber = 0
     var requestedColNumber = 0
-    var selectedSymbol = "0"
+    var selectedSymbol = " "
+    var puzzleName = "Puzzle"
     
-    var originalMatrix = [["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"]]
+    var originalMatrix = [[" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "]]
     
-    var matrix = [["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"]]
+    var matrix = [[" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "]]
     
-    var solvedMatrix = [["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"],
-                          ["0","0","0","0","0","0","0","0","0"]]
+    var solvedMatrix = [[" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "],
+                          [" "," "," "," "," "," "," "," "," "]]
     
-    var colArray = [["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"]]
+    var colArray = [[" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "]]
     
-    var rowArray = [["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"],
-                    ["0","0","0","0","0","0","0","0","0"]]
+    var rowArray = [[" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "],
+                    [" "," "," "," "," "," "," "," "," "]]
     
-    var block1 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block2 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block3 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block4 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block5 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block6 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block7 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block8 = [["0","0","0"],["0","0","0"],["0","0","0"]]
-    var block9 = [["0","0","0"],["0","0","0"],["0","0","0"]]
+    var block1 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block2 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block3 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block4 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block5 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block6 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block7 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block8 = [[" "," "," "],[" "," "," "],[" "," "," "]]
+    var block9 = [[" "," "," "],[" "," "," "],[" "," "," "]]
     
     func generateArrays() {
         for row in 0...8 {
@@ -174,7 +175,7 @@ class SudokuViewController: UIViewController {
                 if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
                     currentCell.setTitle(originalMatrix[row][col], for: .normal)
                     currentCell.setTitleColor(UIColor.white, for: .normal)
-                    if originalMatrix[row][col] == "0" {
+                    if originalMatrix[row][col] == " " {
                         currentCell.isEnabled = true
                     }
                     else {
@@ -218,7 +219,7 @@ class SudokuViewController: UIViewController {
                         }
                     }
                     else {
-                        if currentCell.title(for: .normal) != "0" {
+                        if currentCell.title(for: .normal) != " " {
                             currentCell.setTitleColor(UIColor.red, for: .normal)
                         }
                     }
@@ -233,7 +234,7 @@ class SudokuViewController: UIViewController {
         for row in 0...8 {
             for col in 0...8 {
                 if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
-                        if currentCell.title(for: .normal) == "0" {
+                        if currentCell.title(for: .normal) == " " {
                            return false
                     }
                 }
@@ -242,6 +243,13 @@ class SudokuViewController: UIViewController {
         return true
     }
     
+    
+    @IBOutlet weak var MainMenu: UIButton!
+    
+    
+    @IBAction func MainMenuPressed(_ sender: UIButton) {
+        
+    }
     
     @IBOutlet weak var Restart: UIButton!
     
@@ -271,35 +279,23 @@ class SudokuViewController: UIViewController {
         validateMatrix()
     }
     
+    @IBOutlet weak var PuzzleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         populateInitialState()
+        
+        PuzzleLabel.text = puzzleName
+        
+        navigationItem.hidesBackButton = true
     }
-    
-    func resumePuzzle () {
-        
-        for row in 0...8 {
-            for col in 0...8 {
-                if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
-                    
-                    if currentCell.isEnabled == true && currentCell.title(for: .normal) != "0" {
-                        currentCell.setTitleColor(UIColor.orange, for: .normal)
-                    }
-                    
-                }
-            }
-        }
-        
-    }
-
-    @IBOutlet weak var Resume: UIButton!
+   
+    @IBOutlet weak var ShowHints: UIButton!
     
     
-    @IBAction func ResumePressed(_ sender: UIButton) {
-        
-        resumePuzzle()
+    @IBAction func ShowHintsPressed(_ sender: UIButton) {
     }
     
     override func didReceiveMemoryWarning() {
@@ -317,6 +313,7 @@ class SudokuViewController: UIViewController {
                 if sender == view.subviews[0].subviews[row].subviews[col] as? UIButton {
                     symbolsVC.rowNumber = row
                     symbolsVC.colNumber = col
+                    symbolsVC.valueSelected = sender.title(for: .normal)!
                     break outer
                 }
             }
@@ -325,7 +322,7 @@ class SudokuViewController: UIViewController {
         requestedRowNumber = symbolsVC.rowNumber
         requestedColNumber = symbolsVC.colNumber
         
-        highlightSelectedCell(colorToSet: UIColor.orange)
+        highlightSelectedCell(colorToSet: UIColor.white)
         
         //navigationController?.pushViewController(symbolsVC, animated: true)
         symbolsVC.modalPresentationStyle = .overFullScreen
