@@ -75,6 +75,8 @@ class SudokuViewController: UIViewController {
     var block8 = [[" "," "," "],[" "," "," "],[" "," "," "]]
     var block9 = [[" "," "," "],[" "," "," "],[" "," "," "]]
     
+    var candidatesDictionary = Dictionary<String, [[String]]>()
+    
     func generateArrays() {
         for row in 0...8 {
             for col in 0...8 {
@@ -243,6 +245,97 @@ class SudokuViewController: UIViewController {
         return true
     }
     
+    func checkIfBlockContainsSymbol (block : [[String]], symbolToCheck: String) -> Bool {
+        var blockContainsSymbol = false
+        for row in 0...2 {
+            if block[row].contains(symbolToCheck) {
+                blockContainsSymbol = true
+                break
+            }
+        }
+        return blockContainsSymbol
+    }
+    
+    func findCandidateCellsAtSpecifiedLocation (emptyCellRow: Int, emptyCellCol: Int) -> [[String]] {
+        var candidateValues = [["1","2","3"],["4","5","6"],["7","8","9"]]
+        for row in 0...2 {
+            for col in 0...2 {
+                if rowArray[emptyCellRow].contains(candidateValues[row][col]) || colArray[emptyCellCol].contains(candidateValues[row][col]) {
+                    candidateValues[row][col] = " "
+                }
+                if candidateValues[row][col] == " " {
+                    continue
+                }
+                switch emptyCellRow {
+                case 0...2:
+                    switch emptyCellCol {
+                    case 0...2:
+                        if checkIfBlockContainsSymbol(block: block1, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    case 3...5:
+                        if checkIfBlockContainsSymbol(block: block2, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    case 6...8:
+                        if checkIfBlockContainsSymbol(block: block3, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    default:
+                        break
+                    }
+                case 3...5:
+                    switch emptyCellCol {
+                    case 0...2:
+                        if checkIfBlockContainsSymbol(block: block4, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    case 3...5:
+                        if checkIfBlockContainsSymbol(block: block5, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    case 6...8:
+                        if checkIfBlockContainsSymbol(block: block6, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    default:
+                        break
+                    }
+                case 6...8:
+                    switch emptyCellCol {
+                    case 0...2:
+                        if checkIfBlockContainsSymbol(block: block7, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    case 3...5:
+                        if checkIfBlockContainsSymbol(block: block8, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    case 6...8:
+                        if checkIfBlockContainsSymbol(block: block9, symbolToCheck: candidateValues[row][col]) {
+                            candidateValues[row][col] = " "
+                        }
+                    default:
+                        break
+                    }
+                default:
+                    break
+                }
+            }
+        }
+        return candidateValues
+    }
+    
+    func calculateCandidateCells () {
+        for row in 0...8 {
+            for col in 0...8 {
+                if matrix[row][col] == " " {
+                    candidatesDictionary[String(row) + String(col)] = findCandidateCellsAtSpecifiedLocation(emptyCellRow: row, emptyCellCol: col)
+                }
+            }
+        }
+    }
+    
     
     @IBOutlet weak var MainMenu: UIButton!
     
@@ -310,6 +403,26 @@ class SudokuViewController: UIViewController {
     
     
     @IBAction func ShowHintsPressed(_ sender: UIButton) {
+        calculateCandidateCells()
+        print("CandidatesDictionary: ")
+        for rowNum in 0...8 {
+            for m in 0...2 {
+                var curRow = "";
+                for colNum in 0...8 {
+                    for j in 0...2 {
+                        
+                        if let candidateCells = candidatesDictionary[String(rowNum)+String(colNum)] {
+                            curRow += " " + (candidateCells[m][j])
+                        }
+                        
+                    }
+                    curRow += " |"
+                }
+                print (curRow)
+            }
+            print("________________________________________________________________________");
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -353,6 +466,9 @@ class SudokuViewController: UIViewController {
     func writeIntoSelectedCell (symbolToWrite: String) {
         if let selectedCell = view.subviews[0].subviews[requestedRowNumber].subviews[requestedColNumber] as? UIButton {
             selectedCell.setTitle(symbolToWrite, for: .normal)
+            matrix[requestedRowNumber][requestedColNumber] = symbolToWrite
+            generateArrays()
+            candidatesDictionary.removeValue(forKey: String(requestedRowNumber) + String(requestedColNumber))
         }
     }
     
