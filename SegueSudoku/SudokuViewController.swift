@@ -196,7 +196,7 @@ class SudokuViewController: UIViewController {
     func validateMatrix() {
         
         guard isPuzzleComplete() else {
-            let alert = UIAlertController(title: "Incomplete puzzle", message: "Please complete all cells", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Incomplete puzzle", message: "You have not completed the puzzle!", preferredStyle: UIAlertControllerStyle.alert)
             let incompletePuzzleAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
                 // The puzzle is not complete yet
             }
@@ -236,7 +236,7 @@ class SudokuViewController: UIViewController {
         for row in 0...8 {
             for col in 0...8 {
                 if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
-                        if currentCell.title(for: .normal) == " " {
+                        if currentCell.title(for: .normal) == " " || currentCell.titleLabel?.font == UIFont.systemFont(ofSize: 10){
                            return false
                     }
                 }
@@ -404,7 +404,37 @@ class SudokuViewController: UIViewController {
     
     @IBAction func ShowHintsPressed(_ sender: UIButton) {
         calculateCandidateCells()
-        print("CandidatesDictionary: ")
+        for row in 0...8 {
+            for col in 0...8 {
+                if let cell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
+                    
+                    if cell.title(for: .normal) == " " {
+                    
+                        var candidateString = ""
+                        for i in 0...2 {
+                            for j in 0...2 {
+                                candidateString += " " + (candidatesDictionary[String(row)+String(col)]?[i][j])!
+                            }
+                            candidateString += "\n"
+                        }
+                    
+                        cell.setTitle(candidateString, for: .normal)
+                        cell.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+                        cell.setTitleColor(UIColor.white, for: .normal)
+                    }
+                    else if cell.titleLabel?.font == UIFont.systemFont(ofSize: 10) {
+                        
+                        cell.setTitle(" ", for: .normal)
+                        cell.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+                        cell.setTitleColor(UIColor.white, for: .normal)
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func printCandidates() {
         for rowNum in 0...8 {
             for m in 0...2 {
                 var curRow = "";
@@ -418,11 +448,9 @@ class SudokuViewController: UIViewController {
                     }
                     curRow += " |"
                 }
-                print (curRow)
-            }
+                print (curRow)            }
             print("________________________________________________________________________");
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -466,6 +494,7 @@ class SudokuViewController: UIViewController {
     func writeIntoSelectedCell (symbolToWrite: String) {
         if let selectedCell = view.subviews[0].subviews[requestedRowNumber].subviews[requestedColNumber] as? UIButton {
             selectedCell.setTitle(symbolToWrite, for: .normal)
+            selectedCell.titleLabel?.font = UIFont.systemFont(ofSize: 30)
             matrix[requestedRowNumber][requestedColNumber] = symbolToWrite
             generateArrays()
             candidatesDictionary.removeValue(forKey: String(requestedRowNumber) + String(requestedColNumber))
