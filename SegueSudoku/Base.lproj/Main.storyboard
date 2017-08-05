@@ -1276,7 +1276,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LdL-pN-E7e">
                                                 <rect key="frame" x="192" y="0.0" width="96" height="41.5"/>
-                                                <state key="normal" title="Show / Clear Hints"/>
+                                                <state key="normal" title="Show Hints"/>
                                                 <connections>
                                                     <action selector="ShowHintsPressed:" destination="025-Zk-sXN" eventType="touchUpInside" id="xaI-WB-y1A"/>
                                                 </connections>

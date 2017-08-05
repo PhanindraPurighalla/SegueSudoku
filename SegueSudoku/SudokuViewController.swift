@@ -327,6 +327,7 @@ class SudokuViewController: UIViewController {
     }
     
     func calculateCandidateCells () {
+        candidatesDictionary.removeAll()
         for row in 0...8 {
             for col in 0...8 {
                 if matrix[row][col] == " " {
@@ -342,8 +343,8 @@ class SudokuViewController: UIViewController {
     
     @IBAction func MainMenuPressed(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Want to go home?", message: "Are you sure you want to go back to the main menu?", preferredStyle: UIAlertControllerStyle.alert)
-        let mainMenuAction = UIAlertAction(title: "Go Home", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
+        let alert = UIAlertController(title: "Go to main menu?", message: "This will erase all progress!", preferredStyle: UIAlertControllerStyle.alert)
+        let mainMenuAction = UIAlertAction(title: "Main Menu", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
             self.performSegue(withIdentifier: "mainMenu", sender: self)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) -> Void in
@@ -398,11 +399,58 @@ class SudokuViewController: UIViewController {
         
         navigationItem.hidesBackButton = true
     }
+    
+    func isProgressValid () -> Bool {
+        for row in 0...8 {
+            for col in 0...8 {
+                if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
+                    
+                    if currentCell.title(for: .normal) != " " && currentCell.titleLabel?.font == UIFont.systemFont(ofSize: 30) && currentCell.title(for: .normal) != solvedMatrix[row][col] {
+                        
+                            currentCell.setTitleColor(UIColor.red, for: .normal)
+                        return false
+                    }
+                    
+                }
+            }
+        }
+        return true
+    }
+    
+    func isInPuzzleMode () -> Bool {
+        for row in 0...8 {
+            for col in 0...8 {
+                if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
+                    
+                    if currentCell.titleLabel?.font == UIFont.systemFont(ofSize: 10) {
+                        
+                        return false
+                    }
+                    
+                }
+            }
+        }
+        return true
+    }
    
     @IBOutlet weak var ShowHints: UIButton!
     
     
     @IBAction func ShowHintsPressed(_ sender: UIButton) {
+        
+        guard isProgressValid() else {
+            let alert = UIAlertController(title: "Invalid cells", message: "One or more cells are invalid! Please correct or clear them!", preferredStyle: UIAlertControllerStyle.alert)
+            let invalidProgressAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
+                // Invalid cells to be corrected before showing hints
+            }
+            
+            alert.addAction(invalidProgressAction)
+            
+            self.present(alert, animated: true, completion:nil)
+            
+            return
+        }
+        
         calculateCandidateCells()
         for row in 0...8 {
             for col in 0...8 {
@@ -432,6 +480,12 @@ class SudokuViewController: UIViewController {
             }
         }
         
+        if isInPuzzleMode() {
+            sender.setTitle("Show Hints", for: .normal)
+        }
+        else {
+            sender.setTitle("Clear Hints", for: .normal)
+        }
     }
     
     func printCandidates() {
@@ -461,6 +515,20 @@ class SudokuViewController: UIViewController {
     @IBOutlet var SudokuCell: [UIButton]!
 
     @IBAction func SudokuCellPressed(_ sender: UIButton) {
+        
+        guard isInPuzzleMode() else {
+            let alert = UIAlertController(title: "Not editable in hint mode", message: "Please clear hints before progressing!", preferredStyle: UIAlertControllerStyle.alert)
+            let inHintModeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
+                // Hints to be cleared before progressing
+            }
+            
+            alert.addAction(inHintModeAction)
+            
+            self.present(alert, animated: true, completion:nil)
+            
+            return
+        }
+        
         let symbolsVC = storyboard?.instantiateViewController(withIdentifier: "SymbolsViewController") as! SymbolsViewController
         
         outer: for row in 0...8 {
