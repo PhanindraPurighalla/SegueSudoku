@@ -1295,8 +1295,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="42"/>
                                                 <state key="normal" title="Main Menu"/>
                                                 <connections>
-                                                    <action selector="MainMenuPressed:" destination="025-Zk-sXN" eventType="touchUpInside" id="hMu-uT-kc4"/>
-                                                    <segue destination="WQb-k5-5yG" kind="unwind" unwindAction="unwindToHomeWithUnwindSegue:" id="fMR-qP-XUu"/>
+                                                    <action selector="MainMenuPressed:" destination="025-Zk-sXN" eventType="touchUpInside" id="EJT-26-zWJ"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puzzle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZT-q9-awA">
@@ -1405,6 +1404,7 @@
                         <outletCollection property="SudokuCell" destination="qGn-Ml-zkk" collectionClass="NSMutableArray" id="nXK-DI-duQ"/>
                         <outletCollection property="SudokuCell" destination="HkG-Sq-60S" collectionClass="NSMutableArray" id="S52-Kl-BAG"/>
                         <outletCollection property="SudokuCell" destination="vZ9-bL-ZGT" collectionClass="NSMutableArray" id="OeW-Fl-XAt"/>
+                        <segue destination="WQb-k5-5yG" kind="unwind" identifier="mainMenu" unwindAction="unwindToHomeWithUnwindSegue:" id="dno-Zx-Kdv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHK-HX-05T" userLabel="First Responder" sceneMemberID="firstResponder"/>

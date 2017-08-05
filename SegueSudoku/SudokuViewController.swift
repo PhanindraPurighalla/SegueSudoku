@@ -249,6 +249,20 @@ class SudokuViewController: UIViewController {
     
     @IBAction func MainMenuPressed(_ sender: UIButton) {
         
+        let alert = UIAlertController(title: "Want to go home?", message: "Are you sure you want to go back to the main menu?", preferredStyle: UIAlertControllerStyle.alert)
+        let mainMenuAction = UIAlertAction(title: "Go Home", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
+            self.performSegue(withIdentifier: "mainMenu", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) -> Void in
+            //print("You pressed Cancel")
+        }
+        
+        alert.addAction(mainMenuAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion:nil)
+        
+        
     }
     
     @IBOutlet weak var Restart: UIButton!
