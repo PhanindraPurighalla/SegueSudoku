@@ -25,26 +25,50 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hsK-rv-edh">
                                 <rect key="frame" x="16" y="64" width="288" height="416"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2017-08-06 at 12.23.17 PM" translatesAutoresizingMaskIntoConstraints="NO" id="6PS-U1-sNZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="104"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEY-VX-fmH">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="138.5"/>
+                                        <rect key="frame" x="0.0" y="104" width="288" height="104"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Easy"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="EasyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bxw-eA-hUt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrA-Q9-MQG">
-                                        <rect key="frame" x="0.0" y="138.5" width="288" height="139"/>
+                                        <rect key="frame" x="0.0" y="208" width="288" height="104"/>
+                                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Medium"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="MediumButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfu-VU-D9E"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NV-o5-i9u">
-                                        <rect key="frame" x="0.0" y="277.5" width="288" height="138.5"/>
+                                        <rect key="frame" x="0.0" y="312" width="288" height="104"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Hard"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="HardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f4q-73-aTE"/>
                                         </connections>
@@ -81,42 +105,75 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-X5-bxq">
                                 <rect key="frame" x="16" y="20" width="288" height="460"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2017-08-06 at 12.23.17 PM" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-0y-QDz">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="76.5"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvq-04-qXt">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="92"/>
+                                        <rect key="frame" x="0.0" y="76.5" width="288" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Puzzle 1"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="Puzzle1ButtonPressed:" destination="4z0-fs-Jfa" eventType="touchUpInside" id="QkQ-KM-epw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygw-fU-4Rg">
-                                        <rect key="frame" x="0.0" y="92" width="288" height="92"/>
+                                        <rect key="frame" x="0.0" y="153.5" width="288" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Puzzle 2"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="Puzzle2ButtonPressed:" destination="4z0-fs-Jfa" eventType="touchUpInside" id="7kv-Ko-1fb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLp-HH-NDw">
-                                        <rect key="frame" x="0.0" y="184" width="288" height="92"/>
+                                        <rect key="frame" x="0.0" y="230" width="288" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Puzzle 3"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="Puzzle3ButtonPressed:" destination="4z0-fs-Jfa" eventType="touchUpInside" id="rrD-Mv-rPC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd4-D5-xqm">
-                                        <rect key="frame" x="0.0" y="276" width="288" height="92"/>
+                                        <rect key="frame" x="0.0" y="306.5" width="288" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Puzzle 4"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="Puzzle4ButtonPressed:" destination="4z0-fs-Jfa" eventType="touchUpInside" id="P9g-ue-sP5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvF-HN-BE0">
-                                        <rect key="frame" x="0.0" y="368" width="288" height="92"/>
+                                        <rect key="frame" x="0.0" y="383.5" width="288" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Puzzle 5"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="Puzzle5ButtonPressed:" destination="4z0-fs-Jfa" eventType="touchUpInside" id="hTI-Vd-eRp"/>
                                         </connections>
@@ -1262,6 +1319,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrL-Fw-Fy3">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="41.5"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Restart"/>
                                                 <connections>
                                                     <action selector="RestartPressed:" destination="025-Zk-sXN" eventType="touchUpInside" id="vaP-RR-fsY"/>
@@ -1269,6 +1327,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWh-ok-ikx">
                                                 <rect key="frame" x="96" y="0.0" width="96" height="41.5"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Validate"/>
                                                 <connections>
                                                     <action selector="ValidatePressed:" destination="025-Zk-sXN" eventType="touchUpInside" id="v0Q-da-DlS"/>
@@ -1276,6 +1335,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LdL-pN-E7e">
                                                 <rect key="frame" x="192" y="0.0" width="96" height="41.5"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Show Hints"/>
                                                 <connections>
                                                     <action selector="ShowHintsPressed:" destination="025-Zk-sXN" eventType="touchUpInside" id="xaI-WB-y1A"/>
@@ -1288,6 +1348,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRG-ka-ZHu">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="42"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Main Menu"/>
                                                 <connections>
                                                     <action selector="MainMenuPressed:" destination="025-Zk-sXN" eventType="touchUpInside" id="EJT-26-zWJ"/>
@@ -1295,8 +1356,8 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puzzle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZT-q9-awA">
                                                 <rect key="frame" x="144" y="0.0" width="144" height="42"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1588,4 +1649,7 @@
             <point key="canvasLocation" x="367.5" y="813.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Screen Shot 2017-08-06 at 12.23.17 PM" width="553" height="103"/>
+    </resources>
 </document>

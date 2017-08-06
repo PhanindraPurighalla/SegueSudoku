@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         puzzlesVC.puzzle3ButtonTitle = "Easy 3"
         puzzlesVC.puzzle4ButtonTitle = "Easy 4"
         puzzlesVC.puzzle5ButtonTitle = "Easy 5"
+        puzzlesVC.bgColor = UIColor.magenta
         
         navigationController?.pushViewController(puzzlesVC, animated: true)
     }
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         puzzlesVC.puzzle3ButtonTitle = "Medium 3"
         puzzlesVC.puzzle4ButtonTitle = "Medium 4"
         puzzlesVC.puzzle5ButtonTitle = "Medium 5"
+        puzzlesVC.bgColor = UIColor.purple
         
         navigationController?.pushViewController(puzzlesVC, animated: true)
         
@@ -44,6 +46,7 @@ class ViewController: UIViewController {
         puzzlesVC.puzzle3ButtonTitle = "Hard 3"
         puzzlesVC.puzzle4ButtonTitle = "Hard 4"
         puzzlesVC.puzzle5ButtonTitle = "Hard 5"
+        puzzlesVC.bgColor = UIColor.orange
         
         navigationController?.pushViewController(puzzlesVC, animated: true)
     }

@@ -14,6 +14,7 @@ class SudokuViewController: UIViewController {
     var requestedColNumber = 0
     var selectedSymbol = " "
     var puzzleName = "Puzzle"
+    var bgColor = UIColor.white
     
     var originalMatrix = [[" "," "," "," "," "," "," "," "," "],
                           [" "," "," "," "," "," "," "," "," "],
@@ -195,6 +196,8 @@ class SudokuViewController: UIViewController {
     
     func validateMatrix() {
         
+        var puzzleSolved = true
+        
         guard isPuzzleComplete() else {
             let alert = UIAlertController(title: "Incomplete puzzle", message: "You have not completed the puzzle!", preferredStyle: UIAlertControllerStyle.alert)
             let incompletePuzzleAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
@@ -208,7 +211,7 @@ class SudokuViewController: UIViewController {
             return
         }
         
-        for row in 0...8 {
+        outer: for row in 0...8 {
             for col in 0...8 {
                 if let currentCell = view.subviews[0].subviews[row].subviews[col] as? UIButton {
                     
@@ -223,11 +226,26 @@ class SudokuViewController: UIViewController {
                     else {
                         if currentCell.title(for: .normal) != " " {
                             currentCell.setTitleColor(UIColor.red, for: .normal)
+                            puzzleSolved = false
+                            break outer
                         }
                     }
                     
                 }
             }
+        }
+        
+        if puzzleSolved == true {
+            let alert = UIAlertController(title: "Good job!", message: "You have solved this puzzle.", preferredStyle: UIAlertControllerStyle.alert)
+            let puzzleSolvedAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (alert: UIAlertAction!) -> Void in
+                // The puzzle is now solved
+            }
+            
+            alert.addAction(puzzleSolvedAction)
+            
+            self.present(alert, animated: true, completion:nil)
+            
+            return
         }
         
     }
@@ -396,6 +414,8 @@ class SudokuViewController: UIViewController {
         populateInitialState()
         
         PuzzleLabel.text = puzzleName
+        
+        view.backgroundColor = bgColor
         
         navigationItem.hidesBackButton = true
     }
