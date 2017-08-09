@@ -15,7 +15,10 @@ class PuzzlesViewController: UIViewController {
     var puzzle3ButtonTitle = ""
     var puzzle4ButtonTitle = ""
     var puzzle5ButtonTitle = ""
-    var bgColor = UIColor.white
+    var easyColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1)
+    var mediumColor = UIColor(red: 125/255, green: 125/255, blue: 125/255, alpha: 1)
+    var hardColor = UIColor(red: 75/255, green: 75/255, blue: 75/255, alpha: 1)
+    var bgColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     
     var sudokuEasy1 = [["2","7"," "," "," ","8","3"," "," "],
                        [" "," "," ","7"," "," "," ","8"," "],
@@ -330,19 +333,19 @@ class PuzzlesViewController: UIViewController {
             sudokuVC.matrix = sudokuEasy1
             sudokuVC.solvedMatrix = sudokuEasy1SolvedMatrix
             sudokuVC.puzzleName = "Easy 1"
-            sudokuVC.bgColor = UIColor.lightGray
+            sudokuVC.bgColor = easyColor
         case "Medium 1":
             sudokuVC.originalMatrix = sudokuMedium1
             sudokuVC.matrix = sudokuMedium1
             sudokuVC.solvedMatrix = sudokuMedium1SolvedMatrix
             sudokuVC.puzzleName = "Medium 1"
-            sudokuVC.bgColor = UIColor.darkGray
+            sudokuVC.bgColor = mediumColor
         case "Hard 1":
             sudokuVC.originalMatrix = sudokuHard1
             sudokuVC.matrix = sudokuHard1
             sudokuVC.solvedMatrix = sudokuHard1SolvedMatrix
             sudokuVC.puzzleName = "Hard 1"
-            sudokuVC.bgColor = UIColor.black
+            sudokuVC.bgColor = hardColor
         default:
             break
         }
@@ -359,19 +362,19 @@ class PuzzlesViewController: UIViewController {
             sudokuVC.matrix = sudokuEasy2
             sudokuVC.solvedMatrix = sudokuEasy2SolvedMatrix
             sudokuVC.puzzleName = "Easy 2"
-            sudokuVC.bgColor = UIColor.lightGray
+            sudokuVC.bgColor = easyColor
         case "Medium 2":
             sudokuVC.originalMatrix = sudokuMedium2
             sudokuVC.matrix = sudokuMedium2
             sudokuVC.solvedMatrix = sudokuMedium2SolvedMatrix
             sudokuVC.puzzleName = "Medium 2"
-            sudokuVC.bgColor = UIColor.darkGray
+            sudokuVC.bgColor = mediumColor
         case "Hard 2":
             sudokuVC.originalMatrix = sudokuHard2
             sudokuVC.matrix = sudokuHard2
             sudokuVC.solvedMatrix = sudokuHard2SolvedMatrix
             sudokuVC.puzzleName = "Hard 2"
-            sudokuVC.bgColor = UIColor.black
+            sudokuVC.bgColor = hardColor
         default:
             break
         }
@@ -388,19 +391,19 @@ class PuzzlesViewController: UIViewController {
             sudokuVC.matrix = sudokuEasy3
             sudokuVC.solvedMatrix = sudokuEasy3SolvedMatrix
             sudokuVC.puzzleName = "Easy 3"
-            sudokuVC.bgColor = UIColor.lightGray
+            sudokuVC.bgColor = easyColor
         case "Medium 3":
             sudokuVC.originalMatrix = sudokuMedium3
             sudokuVC.matrix = sudokuMedium3
             sudokuVC.solvedMatrix = sudokuMedium3SolvedMatrix
             sudokuVC.puzzleName = "Medium 3"
-            sudokuVC.bgColor = UIColor.darkGray
+            sudokuVC.bgColor = mediumColor
         case "Hard 3":
             sudokuVC.originalMatrix = sudokuHard3
             sudokuVC.matrix = sudokuHard3
             sudokuVC.solvedMatrix = sudokuHard3SolvedMatrix
             sudokuVC.puzzleName = "Hard 3"
-            sudokuVC.bgColor = UIColor.black
+            sudokuVC.bgColor = hardColor
         default:
             break
         }
@@ -417,19 +420,19 @@ class PuzzlesViewController: UIViewController {
             sudokuVC.matrix = sudokuEasy4
             sudokuVC.solvedMatrix = sudokuEasy4SolvedMatrix
             sudokuVC.puzzleName = "Easy 4"
-            sudokuVC.bgColor = UIColor.lightGray
+            sudokuVC.bgColor = easyColor
         case "Medium 4":
             sudokuVC.originalMatrix = sudokuMedium4
             sudokuVC.matrix = sudokuMedium4
             sudokuVC.solvedMatrix = sudokuMedium4SolvedMatrix
             sudokuVC.puzzleName = "Medium 4"
-            sudokuVC.bgColor = UIColor.darkGray
+            sudokuVC.bgColor = mediumColor
         case "Hard 4":
             sudokuVC.originalMatrix = sudokuHard4
             sudokuVC.matrix = sudokuHard4
             sudokuVC.solvedMatrix = sudokuHard4SolvedMatrix
             sudokuVC.puzzleName = "Hard 4"
-            sudokuVC.bgColor = UIColor.black
+            sudokuVC.bgColor = hardColor
         default:
             break
         }
@@ -446,19 +449,19 @@ class PuzzlesViewController: UIViewController {
             sudokuVC.matrix = sudokuEasy5
             sudokuVC.solvedMatrix = sudokuEasy5SolvedMatrix
             sudokuVC.puzzleName = "Easy 5"
-            sudokuVC.bgColor = UIColor.lightGray
+            sudokuVC.bgColor = easyColor
         case "Medium 5":
             sudokuVC.originalMatrix = sudokuMedium5
             sudokuVC.matrix = sudokuMedium5
             sudokuVC.solvedMatrix = sudokuMedium5SolvedMatrix
             sudokuVC.puzzleName = "Medium 5"
-            sudokuVC.bgColor = UIColor.darkGray
+            sudokuVC.bgColor = mediumColor
         case "Hard 5":
             sudokuVC.originalMatrix = sudokuHard5
             sudokuVC.matrix = sudokuHard5
             sudokuVC.solvedMatrix = sudokuHard5SolvedMatrix
             sudokuVC.puzzleName = "Hard 5"
-            sudokuVC.bgColor = UIColor.black
+            sudokuVC.bgColor = hardColor
         default:
             break
         }

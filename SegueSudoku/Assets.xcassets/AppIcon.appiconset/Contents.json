@@ -3,103 +3,103 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Snap1_Sudoku.png",
+      "filename" : "SudokuIcon.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Snap2_Sudoku.png",
+      "filename" : "SudokuIcon-1.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Snap3_Sudoku.png",
+      "filename" : "SudokuIcon-2.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Snap3_Sudoku-1.png",
+      "filename" : "SudokuIcon-3.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Snap1_Sudoku-1.png",
+      "filename" : "SudokuIcon-4.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Snap1_Sudoku-2.png",
+      "filename" : "SudokuIcon-5.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Snap1_Sudoku-3.png",
+      "filename" : "SudokuIcon-6.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Snap1_Sudoku-4.png",
+      "filename" : "SudokuIcon-7.png",
       "scale" : "3x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-5.png",
+      "filename" : "SudokuIcon-8.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-6.png",
+      "filename" : "SudokuIcon-9.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-7.png",
+      "filename" : "SudokuIcon-10.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-8.png",
+      "filename" : "SudokuIcon-11.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-9.png",
+      "filename" : "SudokuIcon-12.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-10.png",
+      "filename" : "SudokuIcon-13.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-11.png",
+      "filename" : "SudokuIcon-14.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-12.png",
+      "filename" : "SudokuIcon-15.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "Snap1_Sudoku-13.png",
+      "filename" : "SudokuIcon-16.png",
       "scale" : "2x"
     }
   ],

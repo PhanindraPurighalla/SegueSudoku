@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C4D9CA56F01229086973496 /* Pods_SegueSudoku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226EC28915F590C3D9DAF1FC /* Pods_SegueSudoku.framework */; };
 		A5505C761F2CCFB30030EACB /* SudokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5505C751F2CCFB30030EACB /* SudokuViewController.swift */; };
 		A5505C781F2CF4700030EACB /* SymbolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5505C771F2CF4700030EACB /* SymbolsViewController.swift */; };
 		A5A5B37C1F2C3C02003E9AE8 /* PuzzlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5B37B1F2C3C02003E9AE8 /* PuzzlesViewController.swift */; };
+		A5B25CFE1F3B7AF400749CFC /* SudokuPuzzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B25CFD1F3B7AF400749CFC /* SudokuPuzzles.swift */; };
 		A5C4DBC11F2BAECF004B2220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4DBC01F2BAECF004B2220 /* AppDelegate.swift */; };
 		A5C4DBC31F2BAECF004B2220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C4DBC21F2BAECF004B2220 /* ViewController.swift */; };
 		A5C4DBC61F2BAECF004B2220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C4DBC41F2BAECF004B2220 /* Main.storyboard */; };
@@ -18,9 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F8863380EA31CD8158AEB4D /* Pods-SegueSudoku.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegueSudoku.release.xcconfig"; path = "Pods/Target Support Files/Pods-SegueSudoku/Pods-SegueSudoku.release.xcconfig"; sourceTree = "<group>"; };
+		226EC28915F590C3D9DAF1FC /* Pods_SegueSudoku.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegueSudoku.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CAE2D69A436CFA2AFC66744 /* Pods-SegueSudoku.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegueSudoku.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SegueSudoku/Pods-SegueSudoku.debug.xcconfig"; sourceTree = "<group>"; };
 		A5505C751F2CCFB30030EACB /* SudokuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudokuViewController.swift; sourceTree = "<group>"; };
 		A5505C771F2CF4700030EACB /* SymbolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolsViewController.swift; sourceTree = "<group>"; };
 		A5A5B37B1F2C3C02003E9AE8 /* PuzzlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzlesViewController.swift; sourceTree = "<group>"; };
+		A5B25CFD1F3B7AF400749CFC /* SudokuPuzzles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudokuPuzzles.swift; sourceTree = "<group>"; };
 		A5C4DBBD1F2BAECF004B2220 /* SegueSudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegueSudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C4DBC01F2BAECF004B2220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5C4DBC21F2BAECF004B2220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C4D9CA56F01229086973496 /* Pods_SegueSudoku.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79BDFAA5014E61F5971F50E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CAE2D69A436CFA2AFC66744 /* Pods-SegueSudoku.debug.xcconfig */,
+				0F8863380EA31CD8158AEB4D /* Pods-SegueSudoku.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D26578204367E3CE39A5DED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				226EC28915F590C3D9DAF1FC /* Pods_SegueSudoku.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A5C4DBB41F2BAECF004B2220 = {
 			isa = PBXGroup;
 			children = (
 				A5C4DBBF1F2BAECF004B2220 /* SegueSudoku */,
 				A5C4DBBE1F2BAECF004B2220 /* Products */,
+				79BDFAA5014E61F5971F50E1 /* Pods */,
+				8D26578204367E3CE39A5DED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +95,7 @@
 				A5A5B37B1F2C3C02003E9AE8 /* PuzzlesViewController.swift */,
 				A5505C751F2CCFB30030EACB /* SudokuViewController.swift */,
 				A5505C771F2CF4700030EACB /* SymbolsViewController.swift */,
+				A5B25CFD1F3B7AF400749CFC /* SudokuPuzzles.swift */,
 			);
 			path = SegueSudoku;
 			sourceTree = "<group>";
@@ -80,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5C4DBCF1F2BAECF004B2220 /* Build configuration list for PBXNativeTarget "SegueSudoku" */;
 			buildPhases = (
+				A807B0304F8905FF6D0AEA00 /* [CP] Check Pods Manifest.lock */,
 				A5C4DBB91F2BAECF004B2220 /* Sources */,
 				A5C4DBBA1F2BAECF004B2220 /* Frameworks */,
 				A5C4DBBB1F2BAECF004B2220 /* Resources */,
+				2EE727E79D211AB55FF5D50A /* [CP] Embed Pods Frameworks */,
+				F067977FA152567E55DA2D12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -106,7 +136,7 @@
 					A5C4DBBC1F2BAECF004B2220 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6XR2VF993P;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -141,6 +171,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2EE727E79D211AB55FF5D50A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SegueSudoku/Pods-SegueSudoku-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSElasticLoadBalancing/AWSElasticLoadBalancing.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSLambda/AWSLambda.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileAnalytics/AWSMobileAnalytics.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPinpoint/AWSPinpoint.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSElasticLoadBalancing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSLambda.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileAnalytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPinpoint.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SegueSudoku/Pods-SegueSudoku-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A807B0304F8905FF6D0AEA00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SegueSudoku-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F067977FA152567E55DA2D12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SegueSudoku/Pods-SegueSudoku-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A5C4DBB91F2BAECF004B2220 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -149,6 +249,7 @@
 				A5C4DBC31F2BAECF004B2220 /* ViewController.swift in Sources */,
 				A5C4DBC11F2BAECF004B2220 /* AppDelegate.swift in Sources */,
 				A5A5B37C1F2C3C02003E9AE8 /* PuzzlesViewController.swift in Sources */,
+				A5B25CFE1F3B7AF400749CFC /* SudokuPuzzles.swift in Sources */,
 				A5505C761F2CCFB30030EACB /* SudokuViewController.swift in Sources */,
 				A5505C781F2CF4700030EACB /* SymbolsViewController.swift in Sources */,
 			);
@@ -273,26 +374,38 @@
 		};
 		A5C4DBD01F2BAECF004B2220 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CAE2D69A436CFA2AFC66744 /* Pods-SegueSudoku.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6XR2VF993P;
 				INFOPLIST_FILE = SegueSudoku/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aarnaSolutions.SegueSudoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aarnaSolutions.seguesudoku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "afd0820d-d273-4737-bfe5-798aa5a66acd";
+				PROVISIONING_PROFILE_SPECIFIER = SegueSudokuDevelopment;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A5C4DBD11F2BAECF004B2220 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F8863380EA31CD8158AEB4D /* Pods-SegueSudoku.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 6XR2VF993P;
 				INFOPLIST_FILE = SegueSudoku/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aarnaSolutions.SegueSudoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aarnaSolutions.seguesudoku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a9138232-66ad-4e2b-9d38-556b8bf1a961";
+				PROVISIONING_PROFILE_SPECIFIER = SegueSudokuDistribution;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
