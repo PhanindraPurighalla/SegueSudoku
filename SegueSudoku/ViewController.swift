@@ -100,6 +100,7 @@ class ViewController: UIViewController {
     func handleRequest(resultSudokuPuzzle: PremiumPuzzles) {
         
         ActivityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
         
         self.premiumMatrix = resultSudokuPuzzle.Matrix
         self.solvedPremiumMatrix = resultSudokuPuzzle.SolvedMatrix
@@ -118,6 +119,8 @@ class ViewController: UIViewController {
     @IBAction func PremiumButtonPressed(_ sender: UIButton) {
         
         ActivityIndicator.startAnimating()
+        
+        view.isUserInteractionEnabled = false
         
         retrievePremiumPuzzle()
         
