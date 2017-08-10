@@ -8,10 +8,11 @@
 
 import AWSDynamoDB
 
-class SudokuPuzzles : AWSDynamoDBObjectModel, AWSDynamoDBModeling  {
-    var SudokuPuzzleID:String?
-    var DifficultyLevel:String?
-    var Matrix:String?
+class PremiumPuzzles : AWSDynamoDBObjectModel, AWSDynamoDBModeling  {
+    var SudokuPuzzleID:String = ""
+    var DifficultyLevel:String = ""
+    var Matrix:[Array<String>] = []
+    var SolvedMatrix:[Array<String>] = []
     
     class func dynamoDBTableName() -> String {
         return "SudokuPuzzles"

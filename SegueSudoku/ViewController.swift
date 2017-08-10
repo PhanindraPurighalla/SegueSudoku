@@ -14,20 +14,32 @@ class ViewController: UIViewController {
     var easyColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1)
     var mediumColor = UIColor(red: 125/255, green: 125/255, blue: 125/255, alpha: 1)
     var hardColor = UIColor(red: 75/255, green: 75/255, blue: 75/255, alpha: 1)
+    var premiumColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+    
+    
+    var premiumMatrix = [[" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "],
+                  [" "," "," "," "," "," "," "," "," "]]
+    
+    var solvedPremiumMatrix = [[" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "],
+                        [" "," "," "," "," "," "," "," "," "]]
+    
     
 
     @IBAction func EasyButtonPressed(_ sender: UIButton) {
-        
-        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-        
-        dynamoDBObjectMapper.load(SudokuPuzzles.self, hashKey: "EasyPuzzle01", rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as NSError? {
-                print("The request failed. Error: \(error)")
-            } else if let resultSudokuPuzzle = task.result as? SudokuPuzzles {
-                print ("Puzzle now is: \(resultSudokuPuzzle)")
-            }
-            return nil
-        })
         
         let puzzlesVC = storyboard?.instantiateViewController(withIdentifier: "PuzzlesViewController") as! PuzzlesViewController
         puzzlesVC.puzzle1ButtonTitle = "Easy 1"
@@ -42,22 +54,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func MediumButtonPressed(_ sender: UIButton) {
-        
-        let myPuzzle = SudokuPuzzles()
-        myPuzzle?.SudokuPuzzleID = "EasyPuzzle01"
-        myPuzzle?.DifficultyLevel = "Easy"
-        myPuzzle?.Matrix = "00:1,01:2,02:3"
-        
-        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-        
-        dynamoDBObjectMapper.save(myPuzzle!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as? NSError {
-                print("The request failed. Error: \(error)")
-            } else {
-                print ("Saved puzzle 1")
-            }
-            return nil
-        })
         
         let puzzlesVC = storyboard?.instantiateViewController(withIdentifier: "PuzzlesViewController") as! PuzzlesViewController
         puzzlesVC.puzzle1ButtonTitle = "Medium 1"
@@ -83,6 +79,52 @@ class ViewController: UIViewController {
         
         navigationController?.pushViewController(puzzlesVC, animated: true)
     }
+    
+    func retrievePremiumPuzzle() {
+        
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        
+        dynamoDBObjectMapper.load(PremiumPuzzles.self, hashKey: "10Aug2017_E1", rangeKey:nil).continueOnSuccessWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            } else if let resultSudokuPuzzle = task.result as? PremiumPuzzles {
+                
+                DispatchQueue.main.async {
+                    self.handleRequest(resultSudokuPuzzle: resultSudokuPuzzle)
+                }
+            }
+            return nil
+        })
+    }
+    
+    func handleRequest(resultSudokuPuzzle: PremiumPuzzles) {
+        
+        ActivityIndicator.stopAnimating()
+        
+        self.premiumMatrix = resultSudokuPuzzle.Matrix
+        self.solvedPremiumMatrix = resultSudokuPuzzle.SolvedMatrix
+        
+        let sudokuVC = self.storyboard?.instantiateViewController(withIdentifier: "SudokuViewController") as! SudokuViewController
+        
+        
+        sudokuVC.originalMatrix = self.premiumMatrix
+        sudokuVC.matrix = sudokuVC.originalMatrix
+        sudokuVC.solvedMatrix = self.solvedPremiumMatrix
+        sudokuVC.puzzleName = "Premium"
+        sudokuVC.bgColor = self.premiumColor
+        self.navigationController?.pushViewController(sudokuVC, animated: true)
+    }
+    
+    @IBAction func PremiumButtonPressed(_ sender: UIButton) {
+        
+        ActivityIndicator.startAnimating()
+        
+        retrievePremiumPuzzle()
+        
+    }
+    
+    
+    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
