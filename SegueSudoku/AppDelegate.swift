@@ -81,6 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deviceToken = DeviceToken()
         deviceToken?.DeviceID = String(describing: UIDevice.current.identifierForVendor)
         deviceToken?.DeviceToken = deviceTokenString
+        print ("The device token is: \(deviceTokenString)")
+        deviceToken?.UserType = "Regular"
         
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
