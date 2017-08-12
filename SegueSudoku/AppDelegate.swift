@@ -9,6 +9,7 @@
 import UIKit
 import AWSCore
 import AWSCognito
+import AWSDynamoDB
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
         let cognitoId = credentialsProvider.identityId
+        
+        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+        let pushNotificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+        
+        application.registerUserNotificationSettings(pushNotificationSettings)
+        application.registerForRemoteNotifications()
+        application.applicationIconBadgeNumber = 0
         
         return true
     }
@@ -54,7 +62,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // Handle remote notification registration.
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
+        // Forward the token to your provider, using a custom method.
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        // Print it to console
+        print("APNs device token: \(deviceTokenString)")
+        
+        // Store the device token in Amazon DynamoDB
+        saveDeviceToken(deviceTokenString: deviceTokenString)
+    }
+    
+    func saveDeviceToken(deviceTokenString: String) {
+        // Save a new deviceToken to the Amazon DynamoDB
+        let deviceToken = DeviceToken()
+        deviceToken?.DeviceID = String(describing: UIDevice.current.identifierForVendor)
+        deviceToken?.DeviceToken = deviceTokenString
+        
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        
+        dynamoDBObjectMapper.save(deviceToken!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            } else {
+                print ("Saved device token \(deviceTokenString)")
+            }
+            return nil
+        })
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        // The token is not currently available.
+        print("Remote notification support is unavailable due to error: \(error.localizedDescription)")
+    }
 
+    // Push notification received
+    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        // Print notification payload data
+        print("Push notification received: \(data)")
+    }
 
 }
 
