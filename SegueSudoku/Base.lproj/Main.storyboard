@@ -24,10 +24,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hsK-rv-edh">
                                 <rect key="frame" x="16" y="64" width="288" height="416"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEY-VX-fmH">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zWo-C2-v2H">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="69.5"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEY-VX-fmH">
+                                        <rect key="frame" x="0.0" y="69.5" width="288" height="69"/>
                                         <color key="backgroundColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Easy"/>
                                         <userDefinedRuntimeAttributes>
@@ -40,9 +44,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrA-Q9-MQG">
-                                        <rect key="frame" x="0.0" y="69.5" width="288" height="69"/>
+                                        <rect key="frame" x="0.0" y="138.5" width="288" height="69.5"/>
                                         <color key="backgroundColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Medium"/>
                                         <userDefinedRuntimeAttributes>
@@ -54,14 +58,10 @@
                                             <action selector="MediumButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfu-VU-D9E"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zWo-C2-v2H">
-                                        <rect key="frame" x="0.0" y="138.5" width="288" height="69.5"/>
-                                        <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NV-o5-i9u">
                                         <rect key="frame" x="0.0" y="208" width="288" height="69.5"/>
                                         <color key="backgroundColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Hard"/>
                                         <userDefinedRuntimeAttributes>
@@ -76,9 +76,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5D-JV-Cc4">
                                         <rect key="frame" x="0.0" y="277.5" width="288" height="69"/>
                                         <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Premium"/>
+                                        <state key="normal" title="Today's puzzle"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                                 <integer key="value" value="5"/>
@@ -1517,6 +1517,11 @@
                                                 <state key="normal" title="1">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="7wQ-Zj-mbj"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="Oqd-aU-9fe"/>
@@ -1528,6 +1533,11 @@
                                                 <state key="normal" title="2">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="D2P-Yh-74B"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="Mrl-4U-aJb"/>
@@ -1539,6 +1549,11 @@
                                                 <state key="normal" title="3">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="cVz-kZ-xdi"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="SuT-Fx-TQ6"/>
@@ -1555,6 +1570,11 @@
                                                 <state key="normal" title="4">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="ZLA-nx-CY0"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="M0W-h4-km5"/>
@@ -1566,6 +1586,11 @@
                                                 <state key="normal" title="5">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="cXT-bz-pMb"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="dpc-oo-oOZ"/>
@@ -1577,6 +1602,11 @@
                                                 <state key="normal" title="6">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="7ht-XV-aNQ"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="LOe-hn-g1X"/>
@@ -1593,6 +1623,11 @@
                                                 <state key="normal" title="7">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="Loo-EK-X5W"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="FJd-xR-H1R"/>
@@ -1604,6 +1639,11 @@
                                                 <state key="normal" title="8">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="5aB-Hw-oko"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="tt2-8a-JgC"/>
@@ -1615,6 +1655,11 @@
                                                 <state key="normal" title="9">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="SymbolPressed:" destination="jHG-L5-816" eventType="touchUpInside" id="ohQ-la-MBj"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="Sj6-OX-f6w"/>
@@ -1631,6 +1676,11 @@
                                                 <state key="normal" title="Erase">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="ErasePressed:" destination="jHG-L5-816" eventType="touchUpInside" id="Pz1-xB-p1B"/>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="0o3-Zc-5l3"/>
@@ -1642,6 +1692,11 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <segue destination="rkb-vq-oDd" kind="unwind" unwindAction="unwindToSudokuViewWithUnwindSegue:" id="T3c-yJ-MeS"/>
                                                 </connections>
@@ -1650,6 +1705,11 @@
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2017-08-06 at 12.23.17 PM" translatesAutoresizingMaskIntoConstraints="NO" id="43E-xo-9gq">
                                         <rect key="frame" x="0.0" y="368" width="288" height="92"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                             </stackView>

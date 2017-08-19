@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         application.applicationIconBadgeNumber = 0
         
+        
+        //let snsClient = AmazonSNSClient(initWithAccessKey:ACCESS_KEY_ID, withSecretKey:SECRET_KEY);
+        
         return true
     }
 
@@ -106,6 +109,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
         // Print notification payload data
         print("Push notification received: \(data)")
+        showAlert()
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "New puzzle", message: "A new puzzle awaits you!", preferredStyle: UIAlertControllerStyle.alert)
+        let newPuzzleAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive) { (alert: UIAlertAction!) -> Void in
+            // A new puzzle is ready
+        }
+        
+        alert.addAction(newPuzzleAction)
+        
+        self.window?.rootViewController?.present(alert, animated: true, completion:nil)
     }
 
 }
